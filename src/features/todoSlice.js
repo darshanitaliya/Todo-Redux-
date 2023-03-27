@@ -2,10 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState=
     {
-    todolist:[
-    {id:1,title:"Task 1",status:false},
-    {id:2,title:"Task 2",status:false}
-    ]
+    todolist:[]
     }
 
 const todoSlice=createSlice({

@@ -12,8 +12,6 @@ const todoSlice=createSlice({
     reducers:{
         addTask(state,action){
             state.todo.push(action.payload)
-            // console.log(state)
-            // console.log(action)
         },
         deleteTask(state,action){
             state.todo=state.todo.filter(item=>item.id!==action.payload.id)

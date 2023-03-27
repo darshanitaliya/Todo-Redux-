@@ -14,7 +14,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 function App() {
   const todo=useSelector(state=>state.todos);
-  // console.log('todo',todo)
   const dispatch=useDispatch();
 
 

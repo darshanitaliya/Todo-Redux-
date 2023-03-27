@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 function App() {
   const todo=useSelector(state=>state.todos);
+  // console.log('todo',todo)
   const dispatch=useDispatch();
 
 
@@ -29,7 +30,7 @@ function App() {
   const markDone=(id)=>{
     let first=[],second=[],temp;
 
-    todo.todolist.map((task)=>{
+    todo.todo.map((task)=>{
       if(task.id===id){
         temp={
           id:task.id,
@@ -40,7 +41,7 @@ function App() {
       return null;
     })
 
-    let newTask=todo.todolist.filter(task=>task.id!==id)
+    let newTask=todo.todo.filter(task=>task.id!==id)
 
     temp.status?second.push(temp):first.push(temp);
     for(let i=0;i<newTask.length;i++){
@@ -78,7 +79,7 @@ function App() {
 
   // update task
   const updateTask=()=>{
-    let filterPart=[...todo.todolist].filter(task=>task.id!==updateData.id);
+    let filterPart=[...todo.todo].filter(task=>task.id!==updateData.id);
     dispatch(newState([updateData,...filterPart]));
     setUpdateData('');
     setHighlighter('');
@@ -137,9 +138,9 @@ function App() {
         </>
       )}
 
-      {todo && todo.todolist.length?'':'Add Tasks...'}
+      {todo && todo.todo.length?'':'Add Tasks...'}
 
-      {todo && todo.todolist
+      {todo && todo.todo
       .map(
         (task,index)=>{
           return(

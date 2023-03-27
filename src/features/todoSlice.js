@@ -1,8 +1,8 @@
-import { createSlice,current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState=
     {
-    todo:[
+    todolist:[
     {id:1,title:"Task 1",status:false},
     {id:2,title:"Task 2",status:false}
     ]
@@ -14,8 +14,6 @@ const todoSlice=createSlice({
     reducers:{
         addTask(state,action){
             state.todo.push(action.payload)
-            // console.log(state)
-            // console.log(action)
         },
         deleteTask(state,action){
             state.todo=state.todo.filter(item=>item.id!==action.payload.id)
